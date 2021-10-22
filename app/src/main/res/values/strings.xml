@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">A7</string>
+    <string name="generate_random_number">Generate Your Winning Lotto Numbers</string>
+    <string name="random_number_coming">Wait for it!</string>
+    <string name="sports_text">Random stuff goes here Random stuff goes hereRandom stuff goes hereRandom stuff goes
+        Random stuff goes hereRandom stuff goes here  </string>
+    <string name="can_text">Canada news goes here Canada news goes hereCanada news goes hereCanada
+        news goes hereCanada news goes hereCanada news goes here </string>
+    <string name="world_text">world news goes here world news goes here world news goes here world
+        news goes here world news goes here  </string>
+
+</resources>

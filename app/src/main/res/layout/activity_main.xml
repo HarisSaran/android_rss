@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#80ff80"
+    tools:context=".MainActivity"
+    android:id="@+id/parentView">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#c0ff00"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+
+    <ImageButton
+        android:id="@+id/ib_sports"
+        android:layout_width="183dp"
+        android:layout_height="110dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="98dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/sports"
+        android:background="#80ff80"/>
+
+
+    <TextView
+        android:id="@+id/tv_sports"
+        android:layout_width="190dp"
+        android:layout_height="138dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="-5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:text="@string/sports_text" />
+
+    <ImageButton
+        android:id="@+id/ib_worldNews"
+        android:layout_width="186dp"
+        android:layout_height="113dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="260dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/world_news"
+        android:background="#80ff80"/>
+
+
+    <TextView
+        android:id="@+id/tv_world_news"
+        android:layout_width="190dp"
+        android:layout_height="138dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="-5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:text="@string/world_text" />
+
+    <ImageButton
+        android:id="@+id/ib_canNews"
+        android:layout_width="188dp"
+        android:layout_height="109dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="194dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/can_news"
+        android:background="#80ff80"/>
+
+    <TextView
+        android:id="@+id/tv_can_news"
+        android:layout_width="190dp"
+        android:layout_height="138dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="424dp"
+        android:layout_marginEnd="-9dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:text="@string/can_text" />
+
+    <Button
+        android:id="@+id/btn_generate_random_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/generate_random_number"
+        android:background="#c0ff00"
+        />
+
+    <TextView
+        android:id="@+id/tv_random_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="79dp"
+        android:text="@string/random_number_coming" />
+
+    <ProgressBar
+        android:id="@+id/pb_progress_loader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+
+
+
+</RelativeLayout >

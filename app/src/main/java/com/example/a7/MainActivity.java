@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +27,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 33;
 
     SharedPreferences sharedPreferences;
-//    private TextView nameout;
-//    private TextView ageout;
+
 
 
     @Override
@@ -79,19 +81,28 @@ public class MainActivity extends AppCompatActivity {
 
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        loadTextSize();
+//        loadChanges();
 
     }
 
 
-    public void loadTextSize(){
+    public void loadChanges(){
         TextView sports = findViewById(R.id.tv_sports);
         TextView world = findViewById(R.id.tv_world_news);
         TextView canada = findViewById(R.id.tv_can_news);
+        ImageButton imgWorldButton = findViewById(R.id.ib_worldNews);
+        ImageButton imgSportButton = findViewById(R.id.ib_sports);
+        ImageButton imgCanadaButton = findViewById(R.id.ib_canNews);
+        RelativeLayout mainBackground = findViewById(R.id.parentView);
+
         String fontSize = sharedPreferences.getString(getString(R.string.text_size), "tst");
         String fontColour = sharedPreferences.getString(getString(R.string.font_color), "tst");
+        String backGroundColor = sharedPreferences.getString(getString(R.string.dark_mode), "tst");
+        String changeImages = sharedPreferences.getString(getString(R.string.change_images), "tst");
 
-        if(fontSize == "large"){
+
+
+        if(fontSize.equals("big")){
             sports.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
             world.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
             canada.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
@@ -107,16 +118,37 @@ public class MainActivity extends AppCompatActivity {
             world.setTextColor(Color.parseColor("#0000FF"));
             canada.setTextColor(Color.parseColor("#0000FF"));
         }
-        else if(fontColour.equals("pink")){
-            sports.setTextColor(Color.parseColor("#00FF00"));
-            world.setTextColor(Color.parseColor("#00FF00"));
-            canada.setTextColor(Color.parseColor("#00FF00"));
-        }
+//        else if(fontColour.equals("pink")){
         else{
             sports.setTextColor(Color.parseColor("#000000"));
             world.setTextColor(Color.parseColor("#000000"));
             canada.setTextColor(Color.parseColor("#000000"));
         }
+
+        if(backGroundColor.equals("dark")){
+            mainBackground.setBackgroundColor(Color.parseColor("#72726e"));
+            imgCanadaButton.setBackgroundColor(Color.parseColor("#72726e"));
+            imgSportButton.setBackgroundColor(Color.parseColor("#72726e"));
+            imgWorldButton.setBackgroundColor(Color.parseColor("#72726e"));
+
+        }
+        else{
+            mainBackground.setBackgroundColor(Color.parseColor("#80ff80"));
+            imgCanadaButton.setBackgroundColor(Color.parseColor("#80ff80"));
+            imgSportButton.setBackgroundColor(Color.parseColor("#80ff80"));
+            imgWorldButton.setBackgroundColor(Color.parseColor("#80ff80"));
+        }
+        if(changeImages.equals("change")){
+            imgCanadaButton.setImageResource(R.drawable.rocket);
+            imgSportButton.setImageResource(R.drawable.rocket);
+            imgWorldButton.setImageResource(R.drawable.rocket);
+        }
+//        else{
+//            imgCanadaButton.setImageResource(R.drawable.can_news);
+//            imgSportButton.setImageResource(R.drawable.sports);
+//            imgWorldButton.setImageResource(R.drawable.world_news);
+//        }
+
     }
 
 
@@ -271,6 +303,8 @@ protected void onStart() {
 //        mStatusTracker.setStatus(mActivityName, getString(R.string.on_restart));
 //        Utils.printStatus(mStatusView, mStatusAllView);
         Log.d("HarisRestartA","onRestart()");
+//        loadChanges();
+
     }
 
     @Override
@@ -279,19 +313,7 @@ protected void onStart() {
 //        mStatusTracker.setStatus(mActivityName, getString(R.string.on_resume));
 //        Utils.printStatus(mStatusView, mStatusAllView);
         Log.d("HarisResumeA","onResume()");
-
-//        String myAge = sharedPreferences.getString("THIS IS A TEST for sports", "10");
-////            int myAge = sharedPreferences.getInt(getString(R.string.key_my_age), 10);
-//        String myName = sharedPreferences.getString("THIS IS A TEST for world news","Haris");
-////            Toast.makeText(SaveActivity.this, "Your age: "+Integer.toString(myAge)+" "+"Your name: "+ myName, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(MainActivity.this, "Your age: "+myAge+" "+"Your name: "+ myName, Toast.LENGTH_SHORT).show();
-//
-//        nameout = (TextView) findViewById(R.id.tv_world_news);
-//        nameout.setText(myName);
-//
-//        ageout = (TextView) findViewById(R.id.tv_sports);
-//        ageout.setText(myAge);
-
+        loadChanges();
 
     }
 

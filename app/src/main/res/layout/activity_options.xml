@@ -51,7 +51,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="243dp"
-        android:text="Switch" />
+        android:text="Test Switch" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switch_txcolor"
@@ -67,20 +67,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="476dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="347dp"
         android:text="Size" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch3"
+        android:id="@+id/switch_dark_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="163dp"
-        android:layout_marginTop="392dp"
-        android:text="Switch" />
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="398dp"
+        android:text="Dark Mode" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_change_images"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="455dp"
+        android:text="Change Images" />
 
 
 </RelativeLayout>

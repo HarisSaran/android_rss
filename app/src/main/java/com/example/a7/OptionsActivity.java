@@ -30,18 +30,16 @@ public class OptionsActivity extends AppCompatActivity {
     private SwitchMaterial themeSwitch;
     private TextView themeTV, titleTV;
 
-    private SwitchMaterial clrTextSwitch;
-    private SwitchMaterial sizeTextSwitch;
+    private SwitchMaterial clrTextSwitch, sizeTextSwitch, darkModeSwitch, changeImagesSwitch;
 
 
     SharedPreferences sharedPreferences;
-//    TextView myAge;
-//    TextView myName;
-
 
     private UserSettings settings;
     String text_color = "";
     String text_size = "";
+    String dark_mode = "";
+    String change_images = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +56,9 @@ public class OptionsActivity extends AppCompatActivity {
 
 
         colorSwitchListener();
+        sizeSwitchListener();
+        darkModeSwitchListener();
+        changeImagesSwitchListener();
 
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
 
@@ -70,6 +71,10 @@ public class OptionsActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(getString(R.string.text_size),text_size);
                 editor.putString(getString(R.string.font_color),text_color);
+                editor.putString(getString(R.string.dark_mode),dark_mode);
+                editor.putString(getString(R.string.change_images),change_images);
+
+
                 editor.apply();
 
                 Intent intent = new Intent(OptionsActivity.this, MainActivity.class);
@@ -78,15 +83,35 @@ public class OptionsActivity extends AppCompatActivity {
         });
     };
 
+    public void changeImagesSwitchListener(){
+        changeImagesSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if(checked)
+                    change_images = "change";
+            }
+        });
+    }
+
+    public void darkModeSwitchListener(){
+        darkModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if(checked)
+                    dark_mode = "dark";
+            }
+        });
+    }
+
     public void sizeSwitchListener(){
         sizeTextSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if(checked)
 //                    settings.setCustomTheme(UserSettings.DARK_THEME);
-                    text_color = "yellow";
+                    text_size = "big";
                 else
-                    text_color = "pink";
+                    text_size = "small";
             }
         });
     }
@@ -96,7 +121,6 @@ public class OptionsActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if(checked)
-//                    settings.setCustomTheme(UserSettings.DARK_THEME);
                     text_color = "yellow";
                 else
                     text_color = "pink";
@@ -132,6 +156,8 @@ public class OptionsActivity extends AppCompatActivity {
         parentView = findViewById(R.id.parentView);
         clrTextSwitch = findViewById(R.id.switch_txcolor);
         sizeTextSwitch = findViewById(R.id.switch_txsize);
+        darkModeSwitch = findViewById(R.id.switch_dark_mode);
+        changeImagesSwitch = findViewById(R.id.switch_change_images);
     }
 
     private void loadSharedPreferences(){
@@ -154,8 +180,8 @@ public class OptionsActivity extends AppCompatActivity {
             themeTV.setText("Dark");
             parentView.setBackgroundColor(black);
             themeSwitch.setChecked(true);
-            clrTextSwitch.setChecked(true);
-            sizeTextSwitch.setChecked(true);
+//            clrTextSwitch.setChecked(true);
+//            sizeTextSwitch.setChecked(true);
         }
         else
         {
@@ -164,8 +190,8 @@ public class OptionsActivity extends AppCompatActivity {
             themeTV.setText("Light");
             parentView.setBackgroundColor(white);
             themeSwitch.setChecked(false);
-            clrTextSwitch.setChecked(false);
-            sizeTextSwitch.setChecked(false);
+//            clrTextSwitch.setChecked(false);
+//            sizeTextSwitch.setChecked(false);
         }
 
     }

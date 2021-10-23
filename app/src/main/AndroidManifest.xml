@@ -16,7 +16,7 @@
         <activity
             android:name=".NewsItem"
             android:exported="true"
-            android:parentActivityName=".OptionsActivity"/>
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ListActivity"
             android:exported="true"

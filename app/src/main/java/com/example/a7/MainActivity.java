@@ -8,11 +8,14 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     public static final int REQUEST_CODE = 33;
 
-//    SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences;
 //    private TextView nameout;
 //    private TextView ageout;
 
@@ -74,7 +77,57 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        loadTextSize();
+
     }
+
+
+    public void loadTextSize(){
+        TextView sports = findViewById(R.id.tv_sports);
+        TextView world = findViewById(R.id.tv_world_news);
+        TextView canada = findViewById(R.id.tv_can_news);
+        String fontSize = sharedPreferences.getString(getString(R.string.text_size), "tst");
+        String fontColour = sharedPreferences.getString(getString(R.string.font_color), "tst");
+
+        if(fontSize == "large"){
+            sports.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+            world.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+            canada.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+        }
+        else{
+            sports.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+            world.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+            canada.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+        }
+
+        if(fontColour.equals("yellow")){
+            sports.setTextColor(Color.parseColor("#0000FF"));
+            world.setTextColor(Color.parseColor("#0000FF"));
+            canada.setTextColor(Color.parseColor("#0000FF"));
+        }
+        else if(fontColour.equals("pink")){
+            sports.setTextColor(Color.parseColor("#00FF00"));
+            world.setTextColor(Color.parseColor("#00FF00"));
+            canada.setTextColor(Color.parseColor("#00FF00"));
+        }
+        else{
+            sports.setTextColor(Color.parseColor("#000000"));
+            world.setTextColor(Color.parseColor("#000000"));
+            canada.setTextColor(Color.parseColor("#000000"));
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     View.OnClickListener clickToSports = new View.OnClickListener() {
         @Override

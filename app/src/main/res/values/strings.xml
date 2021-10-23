@@ -9,4 +9,9 @@
     <string name="world_text">world news goes here world news goes here world news goes here world
         news goes here world news goes here  </string>
 
+    <string name="text_size">Change Text Size</string>
+    <string name="font_color">Change Font Color</string>
+
+
+
 </resources>
